@@ -3,11 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Acceso denegado</title>
+    <title>GOOGLE SIGN-IN</title>
 </head>
 <body>
 
-    <h1>Acceso Denegado</h1>
+    <h1>GOOGLE SIGN-IN</h1>
+
+    <div id="g_id_onload"
+         data-client_id="539472145962-vfr3barr7m5s3dj5h9fvjtu4mhb1lc46.apps.googleusercontent.com"
+         data-auto_prompt="false"
+         data-callback="handleCredentialResponse">
+      </div>
+      <div class="g_id_signin"
+         data-type="standard"
+         data-size="large"
+         data-theme="outline"
+         data-text="sign_in_with"
+         data-shape="rectangular"
+         data-logo_alignment="left">
+    </div>
     
+
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script>
+        function handleCredentialResponse(response) {
+  
+           //google token id token
+           console.log('idToken', response.credential);
+        }
+      </script>
 </body>
 </html>
