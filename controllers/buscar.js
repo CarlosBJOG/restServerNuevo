@@ -115,8 +115,6 @@ const buscarProductoPorCategoria = async (req, res = response) => {
             msg:`Las coleccion permitida es ${coleccionPermitida}`
         })
     }
-    const categorias = await Categoria.findById( id );
-
     const productos = await Producto.find( {categoria: ObjectId(id), estado: true})
                                     .populate('categoria', 'nombre')
                                     .populate('usuario', 'nombre')
