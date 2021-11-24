@@ -1,5 +1,6 @@
 const Role = require('../models/role');
 const Usuario = require('../models/usuario');
+const Producto = require('../models/producto');
 
 //en las validaciones custom es necesario utilizar el throw new Error
 
@@ -26,8 +27,17 @@ const existeUsuarioPorId = async ( id ='' ) => {
     }      
 }
 
+//existe producto 
+const existeProductoPorId = async ( id = '') => {
+    const existeProducto = await Producto.findById(id);
+    if( !existeProducto ) {
+        throw new Error(`El producto con id: ${id}, no existe`);
+    }
+}
+
 module.exports = {
      esRoleValido,
      emailValido,
      existeUsuarioPorId,
+     existeProductoPorId
 }
